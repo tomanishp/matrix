@@ -23,7 +23,8 @@
         <hr size="1" />
         <div id="enD">
             <p>
-                <strong>How to play:&nbsp;</strong>This is replica off a classic board game of 4x4 Matrix. Goal is to organize
+                <strong>How to play:&nbsp;</strong>This is replica off a classic board game of 4x4 Matrix. Goal is to
+                organize
                 the randomized number from [1-15] in sequence [1-4][5-8][9-12][13-15]. One block is left empty that can
                 be swapped with one of the adjucent blocks to arrange in right order. Attempt to
                 arrange in least steps possible.
@@ -115,29 +116,7 @@
 
             $("button").off("click");
             $("button").css("background-color", "");
-
-            /*
-            $("button").on("click", function () {
-
-                $(this).addClass('animated tada');
-                setTimeout(removeTada($(this).attr('id')), 1000);
-            });
-            */
-
-            //$("#btn" + iRow + iCol).css("color", "red");
-            $("#btn" + iRow + iCol).css("background-color", "grey");
-            $("#btn" + iRow + iCol).css("color", "grey");
-            $("#btn" + iRow + iCol).text();
-            //$("#btn" + iRow + iCol).css("display", "none");
-
-
-            /*
-            $("#btn" + iRow + iCol).off("click");
-            $("#btn" + iRow + iCol).on("click", function () {
-                $(this).addClass('animated tada');
-                setTimeout(removeTada($(this).attr('id')), 1000);
-            });
-            */
+            $("button").css("color", "black");
 
             var iRP = (iRow - 1);
             var iRN = (iRow + 1);
@@ -149,6 +128,36 @@
             setSwapButton($("#btn" + iRow + iCP), moveLeft);
             setSwapButton($("#btn" + iRow + iCN), moveRight);
 
+            $("#btn" + iRow + iCol).css("background-color", "grey");
+            $("#btn" + iRow + iCol).css("color", "grey");
+            $("#btn" + iRow + iCol).text();
+
+            checkSolve();
+
+        }
+
+        function checkSolve() {
+            let iMatch = 0;
+
+            for (let iDX = 1; iDX < 16; iDX++) {
+
+                iXR = Math.ceil(iDX / 4);
+                iXC = (iDX % 4);
+                if (iXC == 0) { iXC = 4 }
+
+                btn = $("#btn" + iXR + iXC);
+
+                if (btn.text() == iDX) {
+                    btn.css("background-color", "#C1E1C1");
+                    iMatch++;
+                } else {
+                    btn.css("background-color", "");
+                }
+            }
+            if (iMatch == 15) {
+                $("#sClick").text('Solved in ' + iClicks + ' steps!!');
+                $("button").off("click");
+            }
         }
 
         function removeTada(btn) {
@@ -168,7 +177,7 @@
             $(btn).off("click");
             //$(btn).addClass('animated bounceOut' + direction);
             $("button").css("background-color", "");
-            $("button").css("color", "black");
+            //$("button").css("color", "black");
             $("button").off("click");
 
             let iVal = +$(btn).text();

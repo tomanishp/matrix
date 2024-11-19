@@ -17,7 +17,7 @@
     <div class="container-fluid" style="width: 80%;">
         <h2 class="text-primary text-center">4x4 Matrix Game</h2>
         <hr size="1" />
-        <p>Clicks:&nbsp;<span id="sClick">0</span></p>
+        <p><strong><span id="sClick">Clicks: 0</span></strong></p>
 
         <div id="matrix" class=""> </div>
         <hr size="1" />
@@ -96,7 +96,7 @@
             }
             $("#matrix").append('<div class="row" id="rowReset"><p>&nbsp</p><button type="button" id="btnReset" class="btnR" onclick="initializeMatrix()">Reset/ नया क्रम</button></div>');
             setButtons(iR, iC);
-            $("#sClick").text(0);
+            $("#sClick").text('Clicks:0');
 
         }
 
@@ -128,11 +128,11 @@
             setSwapButton($("#btn" + iRow + iCP), moveLeft);
             setSwapButton($("#btn" + iRow + iCN), moveRight);
 
+            checkSolve();
+
             $("#btn" + iRow + iCol).css("background-color", "grey");
             $("#btn" + iRow + iCol).css("color", "grey");
             $("#btn" + iRow + iCol).text();
-
-            checkSolve();
 
         }
 
@@ -206,7 +206,7 @@
             }
             setButtons(iR, iC)
             iClicks++;
-            $("#sClick").text(iClicks);
+            $("#sClick").text('Clicks:' + iClicks);
         }
 
         function moveUp() {

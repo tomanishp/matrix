@@ -17,7 +17,7 @@
     <div class="container-fluid" style="width: 80%;">
         <h2 class="text-primary text-center">4x4 Matrix Game</h2>
         <hr size="1" />
-        <p><strong><span id="sClick">Clicks: 0</span></strong></p>
+        <p><strong><span id="sClick">Steps: 0</span></strong></p>
 
         <div id="matrix" class=""> </div>
         <hr size="1" />
@@ -96,7 +96,7 @@
             }
             $("#matrix").append('<div class="row" id="rowReset"><p>&nbsp</p><button type="button" id="btnReset" class="btnR" onclick="initializeMatrix()">Reset/ नया क्रम</button></div>');
             setButtons(iR, iC);
-            $("#sClick").text('Clicks:0');
+            $("#sClick").text('Steps: 0');
 
         }
 

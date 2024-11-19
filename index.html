@@ -19,15 +19,15 @@
         <hr size="1" />
         <div id="enD">
             <p>
-                <strong>How to play:</strong>This is replica off a classic board game of 4x4 Matrix. Goal is to organize
+                <strong>How to play:&nbsp;</strong>This is replica off a classic board game of 4x4 Matrix. Goal is to organize
                 the randomized number from [1-15] in sequence [1-4][5-8][9-12][13-15]. One block is left empty that can
                 be swapped with one of the adjucent blocks to arrange in right order. Attempt to
-                arrange in least steps possible. 
+                arrange in least steps possible.
             </p>
         </div>
         <div id="enH">
             <p>
-                <strong>कैसे खेलें:</strong>यह 4x4 मैट्रिक्स का बहुत पुराना बोर्ड गेम है। आरंभ में [1-15] तक के अंक
+                <strong>कैसे खेलें:&nbsp;</strong>यह 4x4 मैट्रिक्स का एक पुराना खेल है। आरंभ में [1-15] तक के अंक
                 अनियमित रूप से दिखाये जाते हैं जिन्हें [1-4][5-8][9-12][13-15] के क्रम में व्यवस्थित करना है। एक डब्बा
                 खाली छोड़ा जाता है उसके बगल के किसी और डब्बे से पलट कर जगह बदल सकते हैं। कम से कम संभव चरणों में
                 व्यवस्थित करने का प्रयास
@@ -37,10 +37,11 @@
         <p>Clicks:&nbsp;<span id="sClick">0</span></p>
 
         <div id="matrix" class=""> </div>
-        <hr size="1"/>
-        <div style="text-align: center;">Send feedback/ सुझाव भेजें: <a href="mailto:tomanishp@gmail.com">Manish Pandey</a></div>
+        <hr size="1" />
+        <div style="text-align: center;">Send feedback/ सुझाव भेजें: <a href="mailto:tomanishp@gmail.com">Manish
+                Pandey</a></div>
     </div>
-    <script>"use strict";
+    <script>
 
         let iR, iC, iXR, iXC;
         let nums = [];
@@ -97,7 +98,6 @@
 
         }
 
-
         function resetAnimation() {
             resetButtonAnimation(this);
         }
@@ -121,7 +121,6 @@
                 $(this).addClass('animated tada');
                 setTimeout(removeTada($(this).attr('id')), 1000);
             });
-
             */
 
             //$("#btn" + iRow + iCol).css("color", "red");
@@ -136,7 +135,8 @@
             $("#btn" + iRow + iCol).on("click", function () {
                 $(this).addClass('animated tada');
                 setTimeout(removeTada($(this).attr('id')), 1000);
-            }); */
+            });
+            */
 
             var iRP = (iRow - 1);
             var iRN = (iRow + 1);
@@ -180,22 +180,17 @@
             //    $("#btn" + iR + iC).css("color", "Green");
             //}
 
-
             switch (direction) {
                 case "Up":
                     iR++
                     break;
                 case "Down":
-                    //$(btn).text($("#btn" + (iR + 1) + iCol).text());
-
                     iR--;
                     break;
                 case "Left":
-
                     iC--;
                     break;
                 case "Right":
-
                     iC++;
                     break;
             }
